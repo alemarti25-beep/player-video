@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Player</title>
+<style>
+  body { margin:0; background:#000; display:flex; justify-content:center; align-items:center; height:100vh; }
+  video { width:100%; height:auto; max-height:100vh; }
+</style>
+</head>
+<body>
+
+<script>
+// Obtener parámetro ?src=
+const urlParams = new URLSearchParams(window.location.search);
+const src = urlParams.get("src");
+
+if (!src) {
+  document.body.innerHTML = "<h2 style='color:white;'>No video source provided.</h2>";
+} else {
+  document.body.innerHTML =
+    `<video controls autoplay>
+        <source src="${src}" type="video/mp4">
+        Your browser does not support video.
+     </video>`;
+}
+</script>
+
+</body>
+</html>
